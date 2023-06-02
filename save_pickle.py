@@ -10,10 +10,7 @@ class Person:
         self.address = address
 
     def __str__(self):
-        return f"{self.name = }, {self.age = }, {self.address = }"
-
-
-
+        return f"Name: {self.name}, Age: {self.age}, Address: {self.address = }"
 
 
 def read_file(x):  ####
@@ -21,13 +18,13 @@ def read_file(x):  ####
         info = pickle.load(f)
         return info
 
+
 def write_file(x, info):  ####
     with open(x, 'wb') as f:
         pickle.dump(info, f)
 
 
 def save_object(obj):
-
     info_file = pathlib.Path("obj.pickle")
     if info_file.exists():
         info = read_file("obj.pickle")
@@ -40,6 +37,11 @@ def save_object(obj):
             pickle.dump([obj], f)
 
 
+def show(info):
+    for i in info:
+        print(i)
+
+
 if __name__ == "__main__":
     name = input("Enter Your name: ")
     age = input("Enter Your age: ")
@@ -50,7 +52,13 @@ if __name__ == "__main__":
 
     info = read_file("obj.pickle")
 
-    for i in info:
-        print(i)
-
-
+    print("Do you want to show you the content of the pickle file?")
+    while True:
+        ans = input("Yes ==> 1, No ==? 2: ")
+        if ans == "1":
+            show(info)
+            break
+        elif ans == "2":
+            break
+        else:
+            print("Enter a valid option")
