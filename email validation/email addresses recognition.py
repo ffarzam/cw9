@@ -13,13 +13,17 @@ def read_txt(name):
     return emails
 
 
-def main(file_name):
-    emails = read_txt(file_name)
+def write_txt(filename, info):
+    with open(filename, "a") as f:
+        f.write(info)
+
+
+def main(input_file, output_file):
+    emails = read_txt(input_file)
     for email in emails:
         if validate_email(email):
-            with open("list of valid email.txt", "a") as f:
-                f.write(email)
+            write_txt(output_file, email)
 
 
 if __name__ == '__main__':
-    main("list of email.txt")
+    main("list of email.txt", "list of valid email.txt")
