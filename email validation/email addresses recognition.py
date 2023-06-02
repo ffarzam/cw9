@@ -2,7 +2,7 @@ import re
 
 
 def validate_email(email):
-    password_pattern = r"^[a-z0-9_.-]+[@][a-z0-9.-]+[.]\S{2,3}$"
+    password_pattern = r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@[a-z0-9.-]+[.]\S{2,3}$"
     match = re.match(password_pattern, email)
     return bool(match)
 
