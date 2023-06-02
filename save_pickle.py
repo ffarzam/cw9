@@ -8,21 +8,18 @@ class Person:
         self.name = name
         self.age = age
         self.address = address
-    def __str__(self):
 
+    def __str__(self):
         return f"{self.name = }, {self.age = }, {self.address = }"
 
 
-Ali = Person("Ali", 20, "Teharn")
-Farzam = Person("Farzam", 30, "Guilan")
-Mohammad = Person("Mohammad", 24, "Tehran")
+
 
 
 def read_file(x):  ####
     with open(x, 'rb') as f:
         info = pickle.load(f)
         return info
-
 
 def write_file(x, info):  ####
     with open(x, 'wb') as f:
@@ -44,7 +41,12 @@ def save_object(obj):
 
 
 if __name__ == "__main__":
-    save_object(Farzam)
+    name = input("Enter Your name: ")
+    age = input("Enter Your age: ")
+    address = input("Enter Your address: ")
+    person = Person(name, age, address)
+
+    save_object(person)
 
     info = read_file("obj.pickle")
 
