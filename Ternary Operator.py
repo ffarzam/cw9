@@ -1,7 +1,14 @@
+my_func = lambda x: f'{x} is a positive integer' if x > 0 else f'{x} is a negative integer' if 0 > x else 'zero!'
 
 
-my_func = lambda x: f'{x} is a positive integer' if x > 0 else f'{x} is a negative integer' if 0 > x else f'{x = }'
+def check_number(number):
 
-var = int(input("Enter an integer: "))
+    try:
+        number = int(number)
+        print(my_func(number))
+    except ValueError:
+        print("Input must be an integer")
 
-print(my_func(var))
+
+var = input("Enter an integer: ")
+check_number(var)
